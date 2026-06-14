@@ -1,0 +1,364 @@
+:root {
+  --bg: #eef4f8;
+  --panel: #ffffff;
+  --text: #172033;
+  --muted: #667085;
+  --line: #d9e2ec;
+  --primary: #0f766e;
+  --primary-dark: #115e59;
+  --accent: #2563eb;
+  --danger: #b42318;
+  --warning: #b7791f;
+  --ok: #157347;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f766e, #164e63);
+  color: white;
+  padding: 18px 22px 28px;
+}
+
+.topbar {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand,
+.session,
+.panel-header,
+.appointment-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: white;
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.brand small,
+.hero-content p,
+.session {
+  color: #d9fffb;
+}
+
+.hero-content {
+  max-width: 1180px;
+  margin: 34px auto 12px;
+}
+
+.hero-content h1 {
+  max-width: 740px;
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.08;
+}
+
+.hero-content p {
+  max-width: 680px;
+  font-size: 17px;
+}
+
+.role-label {
+  display: inline-flex;
+  width: auto;
+  margin-top: 18px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #bffff8;
+}
+
+.layout {
+  max-width: 1180px;
+  margin: 26px auto;
+  padding: 0 18px 42px;
+  display: grid;
+  gap: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+}
+
+.panel-header {
+  justify-content: space-between;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.panel-header h2,
+.form-card h3 {
+  margin: 0;
+}
+
+.panel-copy {
+  max-width: 680px;
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.auth-grid,
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.form-card,
+.wide-form {
+  display: grid;
+  gap: 12px;
+}
+
+.form-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+  grid-template-rows: auto 1fr 1fr 1fr auto;
+}
+
+.form-card button {
+  min-height: 62px;
+  align-self: end;
+}
+
+.wide-form {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: end;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 86px;
+  resize: vertical;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: 0;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button.secondary,
+button.ghost {
+  background: #e8f1f5;
+  color: #164e63;
+}
+
+button.secondary:hover,
+button.ghost:hover {
+  background: #d7e7ee;
+}
+
+.danger-button {
+  margin-top: 10px;
+  background: #fff0ed;
+  color: var(--danger);
+  border: 1px solid #ffc9c0;
+}
+
+.danger-button:hover {
+  background: #ffdcd6;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin: 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: #e7f8f2;
+  color: var(--ok);
+  font-weight: 700;
+  border: 1px solid #b7ebd3;
+}
+
+.message.error {
+  background: #fff0ed;
+  color: var(--danger);
+  border-color: #ffc9c0;
+}
+
+.card {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  margin: 7px 0;
+  color: #344054;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #edf2f7;
+  color: #344054;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.badge.pendiente {
+  background: #fff7e6;
+  color: var(--warning);
+}
+
+.badge.confirmado {
+  background: #e7f8f2;
+  color: var(--ok);
+}
+
+.badge.cancelado {
+  background: #fff0ed;
+  color: var(--danger);
+}
+
+.appointment-top {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.appointment-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.empty {
+  padding: 18px;
+  border: 1px dashed #b8c7d3;
+  border-radius: 8px;
+  color: var(--muted);
+  background: #f8fafc;
+}
+
+.role-panel {
+  display: none;
+}
+
+body:not(.is-authenticated) .session-only {
+  display: none;
+}
+
+body.is-authenticated .guest-only {
+  display: none;
+}
+
+body.role-paciente .patient-only,
+body.role-admin .admin-only {
+  display: block;
+}
+
+body.role-admin .patient-only {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .topbar,
+  .panel-header,
+  .appointment-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+}

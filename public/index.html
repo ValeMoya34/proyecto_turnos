@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto de Turnos Medicos</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">+</span>
+          <div>
+            <strong>Sistema de Turnos Medicos</strong>
+          </div>
+        </div>
+        <div class="session">
+          <span id="sessionText">Sin sesion</span>
+          <button id="logoutButton" class="ghost hidden" type="button">Salir</button>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <p class="eyebrow">Sistema de gestion</p>
+        <h1>Gestion de turnos medicos</h1>
+        <p id="roleLabel" class="role-label hidden">Panel de administrador</p>
+      </section>
+    </header>
+
+    <main class="layout">
+      <div id="message" class="message hidden"></div>
+
+      <section class="panel auth-panel guest-only">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Acceso</p>
+            <h2>Ingresar al sistema</h2>
+          </div>
+        </div>
+
+        <div class="auth-grid">
+          <form id="loginForm" class="form-card">
+            <h3>Login</h3>
+            <label>
+              Email
+              <input name="email" type="email" required />
+            </label>
+            <label>
+              Contrasena
+              <input name="password" type="password" required />
+            </label>
+            <button type="submit">Iniciar sesion</button>
+          </form>
+
+          <form id="registerForm" class="form-card">
+            <h3>Registro para pacientes</h3>
+            <label>
+              Nombre
+              <input name="name" type="text" required />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" required />
+            </label>
+            <label>
+              Contrasena
+              <input name="password" type="password" required minlength="6" />
+            </label>
+            <button type="submit">Crear cuenta</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel session-only">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Profesionales</p>
+            <h2>Especialistas disponibles</h2>
+          </div>
+        </div>
+        <div id="professionalsList" class="card-grid"></div>
+      </section>
+
+      <section class="panel session-only role-panel patient-only">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Paciente</p>
+            <h2>Reservar turno</h2>
+            <p class="panel-copy">Elegi un profesional, fecha y horario para crear una reserva.</p>
+          </div>
+        </div>
+
+        <form id="appointmentForm" class="wide-form">
+          <label>
+            Profesional
+            <select name="professionalId" id="professionalSelect" required>
+              <option value="">Seleccionar profesional</option>
+            </select>
+          </label>
+          <label>
+            Fecha
+            <input name="date" type="date" required />
+          </label>
+          <label>
+            Hora
+            <input name="time" type="time" required />
+          </label>
+          <label class="full">
+            Notas
+            <textarea name="notes" placeholder="Motivo de consulta"></textarea>
+          </label>
+          <button type="submit">Crear turno</button>
+        </form>
+      </section>
+
+      <section class="panel session-only role-panel patient-only">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Historial</p>
+            <h2>Mis turnos</h2>
+          </div>
+          <button id="loadMineButton" type="button">Ver mis turnos</button>
+        </div>
+        <div id="myAppointmentsList" class="card-grid"></div>
+      </section>
+
+      <section class="panel session-only role-panel admin-panel admin-only">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Panel de administrador</p>
+            <h2>Cargar profesional</h2>
+          </div>
+        </div>
+
+        <form id="professionalForm" class="wide-form">
+          <label>
+            Nombre
+            <input name="name" type="text" placeholder="Dr/a." required />
+          </label>
+          <label>
+            Especialidad
+            <input name="specialty" type="text" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="profesional@email.com" required />
+          </label>
+          <label>
+            Telefono
+            <input name="phone" type="text" placeholder="1122334455" />
+          </label>
+          <label class="full">
+            Dias disponibles
+            <input name="availableDays" type="text" placeholder="De lunes a sabados" />
+          </label>
+          <button type="submit">Crear profesional</button>
+        </form>
+      </section>
+
+      <section class="panel session-only role-panel admin-panel admin-only">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Turnos</p>
+            <h2>Turnos registrados</h2>
+          </div>
+        </div>
+
+        <div class="filters">
+          <input id="filterSpecialty" type="text" placeholder="Filtrar por especialidad" />
+          <input id="filterProfessional" type="text" placeholder="ID profesional" />
+          <select id="filterStatus">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="confirmado">Confirmado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+
+        <div id="adminAppointmentsList" class="card-grid"></div>
+      </section>
+    </main>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
