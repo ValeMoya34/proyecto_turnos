@@ -1,5 +1,4 @@
 /* eslint-env jest */
-
 require('dotenv').config();
 
 const request = require('supertest');
